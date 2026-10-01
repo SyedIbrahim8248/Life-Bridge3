@@ -1,0 +1,3355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LifeBridge | Human Mentorship & Support</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+:root{
+    --primary:#6c5ce7;
+    --primary2:#8e7dff;
+    --green:#00b894;
+    --blue:#0984e3;
+    --pink:#e84393;
+    --orange:#fdcb6e;
+    --light:#f7f8fc;
+    --white:#ffffff;
+    --text:#202938;
+    --muted:#667085;
+    --border:#e5e7eb;
+    --dark:#0b1120;
+    --dark2:#111827;
+    --shadow:0 15px 40px rgba(0,0,0,.08);
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--light);
+    color:var(--text);
+    line-height:1.6;
+    transition:.3s;
+}
+
+body.dark{
+    --light:#080d18;
+    --white:#111827;
+    --text:#f5f7fa;
+    --muted:#aab4c3;
+    --border:#273449;
+    --shadow:0 15px 40px rgba(0,0,0,.35);
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.95);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid var(--border);
+}
+
+body.dark .navbar{
+    background:rgba(17,24,39,.96);
+}
+
+.nav-container{
+    max-width:1250px;
+    margin:auto;
+    padding:14px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:24px;
+    font-weight:bold;
+    color:var(--primary);
+}
+
+.logo-icon{
+    width:43px;
+    height:43px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:13px;
+    color:white;
+    background:linear-gradient(135deg,var(--primary),var(--pink));
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:var(--text);
+    text-decoration:none;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.nav-links a:hover{
+    color:var(--primary);
+}
+
+.nav-buttons{
+    display:flex;
+    gap:8px;
+}
+
+.icon-btn{
+    width:40px;
+    height:40px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    background:var(--white);
+    color:var(--text);
+    cursor:pointer;
+}
+
+.menu-btn{
+    display:none;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:680px;
+    display:flex;
+    align-items:center;
+    background:
+    radial-gradient(circle at 10% 20%,rgba(108,92,231,.18),transparent 30%),
+    radial-gradient(circle at 90% 30%,rgba(0,184,148,.16),transparent 30%),
+    var(--light);
+}
+
+.hero-container{
+    max-width:1250px;
+    width:100%;
+    margin:auto;
+    padding:80px 20px;
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:60px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 16px;
+    border-radius:30px;
+    background:rgba(108,92,231,.1);
+    color:var(--primary);
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:58px;
+    line-height:1.08;
+    margin-bottom:20px;
+}
+
+.gradient-text{
+    background:linear-gradient(
+        90deg,
+        var(--primary),
+        var(--pink),
+        var(--blue)
+    );
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    color:var(--muted);
+    font-size:18px;
+    max-width:700px;
+    margin-bottom:25px;
+}
+
+.hindi-line{
+    color:var(--primary);
+    font-weight:bold;
+    margin-bottom:25px;
+    font-size:17px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    border:none;
+    cursor:pointer;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:13px 20px;
+    border-radius:12px;
+    font-weight:bold;
+    transition:.25s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.btn-primary{
+    color:white;
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--pink)
+    );
+}
+
+.btn-green{
+    color:white;
+    background:var(--green);
+}
+
+.btn-secondary{
+    background:var(--white);
+    color:var(--text);
+    border:1px solid var(--border);
+}
+
+.hero-card{
+    background:var(--white);
+    padding:25px;
+    border-radius:30px;
+    box-shadow:var(--shadow);
+    border:1px solid var(--border);
+}
+
+.hero-main-card{
+    background:linear-gradient(
+        145deg,
+        var(--primary),
+        var(--primary2)
+    );
+    color:white;
+    padding:35px;
+    border-radius:25px;
+}
+
+.hero-main-card h2{
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+.hero-main-card p{
+    color:white;
+    font-size:15px;
+}
+
+.floating-card{
+    margin-top:15px;
+    padding:15px;
+    border-radius:14px;
+    background:white;
+    color:#202938;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.floating-card strong{
+    display:block;
+    margin-bottom:4px;
+}
+
+/* ================= STATS ================= */
+
+.stats{
+    max-width:1250px;
+    margin:-45px auto 30px;
+    padding:0 20px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    position:relative;
+}
+
+.stat{
+    text-align:center;
+    padding:22px;
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:18px;
+    box-shadow:var(--shadow);
+}
+
+.stat h3{
+    font-size:30px;
+    color:var(--primary);
+}
+
+/* ================= GENERAL ================= */
+
+.section{
+    max-width:1250px;
+    margin:auto;
+    padding:80px 20px;
+}
+
+.section-header{
+    max-width:800px;
+    margin:0 auto 45px;
+    text-align:center;
+}
+
+.section-header span{
+    color:var(--primary);
+    font-weight:bold;
+    font-size:13px;
+}
+
+.section-header h2{
+    font-size:38px;
+    margin:8px 0;
+}
+
+.section-header p{
+    color:var(--muted);
+}
+
+.hindi-title{
+    color:var(--primary);
+    font-weight:bold;
+    margin-top:5px;
+}
+
+/* ================= GRID ================= */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    padding:25px;
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:20px;
+    box-shadow:var(--shadow);
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+}
+
+.card-icon{
+    width:55px;
+    height:55px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:15px;
+    background:rgba(108,92,231,.1);
+    font-size:25px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    margin-bottom:8px;
+}
+
+.card p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.card-link{
+    display:inline-block;
+    margin-top:15px;
+    color:var(--primary);
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* ================= ABOUT ================= */
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
+}
+
+.about-box{
+    padding:30px;
+    border-radius:25px;
+    background:var(--white);
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+}
+
+.about-box p{
+    color:var(--muted);
+}
+
+.check{
+    display:flex;
+    gap:10px;
+    margin:14px 0;
+}
+
+.check span{
+    color:var(--green);
+    font-weight:bold;
+}
+
+/* ================= SEARCH ================= */
+
+.search-area{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:25px;
+}
+
+.search-area input{
+    flex:1;
+    min-width:230px;
+    padding:14px;
+    border:1px solid var(--border);
+    border-radius:12px;
+    background:var(--white);
+    color:var(--text);
+    outline:none;
+}
+
+.filter-btn{
+    padding:12px 16px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    background:var(--white);
+    color:var(--text);
+    cursor:pointer;
+}
+
+.filter-btn.active{
+    background:var(--primary);
+    color:white;
+}
+
+/* ================= FINDER ================= */
+
+.finder{
+    padding:40px;
+    border-radius:28px;
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--pink)
+    );
+    color:white;
+}
+
+.finder h2{
+    font-size:34px;
+}
+
+.finder p{
+    opacity:.9;
+}
+
+.finder-options{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin-top:25px;
+}
+
+.find-option{
+    text-align:left;
+    padding:17px;
+    border-radius:13px;
+    border:1px solid rgba(255,255,255,.3);
+    background:rgba(255,255,255,.13);
+    color:white;
+    cursor:pointer;
+}
+
+.find-option:hover{
+    background:rgba(255,255,255,.25);
+}
+
+.find-result{
+    display:none;
+    margin-top:20px;
+    padding:20px;
+    background:white;
+    color:#222;
+    border-radius:15px;
+}
+
+/* ================= MENTORS ================= */
+
+.mentor-card{
+    text-align:center;
+}
+
+.avatar{
+    width:90px;
+    height:90px;
+    margin:0 auto 15px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:35px;
+    color:white;
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--pink)
+    );
+}
+
+.tag{
+    display:inline-block;
+    padding:5px 10px;
+    margin-top:5px;
+    border-radius:20px;
+    background:rgba(0,184,148,.1);
+    color:var(--green);
+    font-size:12px;
+    font-weight:bold;
+}
+
+/* ================= PROCESS ================= */
+
+.process{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.step{
+    text-align:center;
+}
+
+.step-number{
+    width:60px;
+    height:60px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 15px;
+    border-radius:50%;
+    color:white;
+    background:var(--primary);
+    font-size:23px;
+    font-weight:bold;
+}
+
+/* ================= COMMUNITY ================= */
+
+.community{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    padding:35px;
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:25px;
+    box-shadow:var(--shadow);
+}
+
+.community li{
+    list-style:none;
+    margin:12px 0;
+}
+
+/* ================= CTA ================= */
+
+.cta{
+    padding:60px 30px;
+    text-align:center;
+    border-radius:30px;
+    color:white;
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--pink)
+    );
+}
+
+.cta h2{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.cta p{
+    max-width:750px;
+    margin:0 auto 25px;
+}
+
+/* ================= FAQ ================= */
+
+.faq{
+    margin-bottom:12px;
+    border-radius:15px;
+    background:var(--white);
+    border:1px solid var(--border);
+    overflow:hidden;
+}
+
+.faq-question{
+    display:flex;
+    justify-content:space-between;
+    padding:18px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.faq-answer{
+    display:none;
+    padding:0 18px 18px;
+    color:var(--muted);
+}
+
+.faq.open .faq-answer{
+    display:block;
+}
+
+/* ================= CONTACT ================= */
+
+.contact{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.contact-box{
+    padding:28px;
+    border-radius:22px;
+    background:var(--white);
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+}
+
+.contact-item{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin:20px 0;
+}
+
+.contact-icon{
+    width:45px;
+    height:45px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:12px;
+    background:rgba(108,92,231,.1);
+}
+
+.contact-item a{
+    color:var(--primary);
+    text-decoration:none;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:bold;
+    font-size:14px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+    width:100%;
+    padding:13px;
+    border-radius:10px;
+    border:1px solid var(--border);
+    background:var(--light);
+    color:var(--text);
+    outline:none;
+}
+
+.form-group textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+/* ================= SAFETY ================= */
+
+.safety{
+    padding:25px;
+    border-radius:18px;
+    background:#fff7ed;
+    border:1px solid #fed7aa;
+    color:#7c2d12;
+}
+
+body.dark .safety{
+    background:#27180d;
+    border-color:#713f12;
+    color:#fed7aa;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    padding:55px 20px 20px;
+    background:#0b1120;
+    color:white;
+}
+
+.footer-container{
+    max-width:1250px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:30px;
+}
+
+footer p,
+footer a{
+    color:#aab4c3;
+    font-size:14px;
+}
+
+footer a{
+    display:block;
+    text-decoration:none;
+    margin:8px 0;
+}
+
+.footer-bottom{
+    max-width:1250px;
+    margin:30px auto 0;
+    padding-top:20px;
+    text-align:center;
+    border-top:1px solid #263247;
+    color:#aab4c3;
+    font-size:13px;
+}
+
+/* ================= MODAL ================= */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:2000;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:rgba(0,0,0,.65);
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-content{
+    width:100%;
+    max-width:600px;
+    max-height:90vh;
+    overflow:auto;
+    position:relative;
+    padding:30px;
+    border-radius:22px;
+    background:var(--white);
+    color:var(--text);
+}
+
+.close{
+    position:absolute;
+    right:18px;
+    top:12px;
+    border:none;
+    background:none;
+    color:var(--text);
+    font-size:30px;
+    cursor:pointer;
+}
+
+/* ================= FLOAT BUTTONS ================= */
+
+.whatsapp-float{
+    position:fixed;
+    right:22px;
+    bottom:80px;
+    width:58px;
+    height:58px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:#25D366;
+    color:white;
+    font-size:27px;
+    text-decoration:none;
+    box-shadow:0 8px 25px rgba(0,0,0,.2);
+    z-index:999;
+}
+
+.top-btn{
+    display:none;
+    position:fixed;
+    right:22px;
+    bottom:20px;
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:50%;
+    background:var(--primary);
+    color:white;
+    cursor:pointer;
+    z-index:999;
+}
+
+/* ================= TOAST ================= */
+
+.toast{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    z-index:3000;
+    padding:15px 20px;
+    border-radius:12px;
+    color:white;
+    background:#111827;
+    transform:translateY(120px);
+    opacity:0;
+    transition:.3s;
+}
+
+.toast.show{
+    transform:translateY(0);
+    opacity:1;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:950px){
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:72px;
+        left:0;
+        right:0;
+        flex-direction:column;
+        padding:20px;
+        background:var(--white);
+        border-bottom:1px solid var(--border);
+    }
+
+    .nav-links.show{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero-container,
+    .about,
+    .contact,
+    .community{
+        grid-template-columns:1fr;
+    }
+
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .process{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .finder-options{
+        grid-template-columns:1fr;
+    }
+
+    .footer-container{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    .hero{
+        min-height:auto;
+    }
+
+    .hero-container{
+        padding:60px 18px;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .grid,
+    .stats,
+    .process{
+        grid-template-columns:1fr;
+    }
+
+    .section{
+        padding:60px 15px;
+    }
+
+    .section-header h2{
+        font-size:30px;
+    }
+
+    .footer-container{
+        grid-template-columns:1fr;
+    }
+
+    .finder{
+        padding:25px;
+    }
+
+    .finder h2{
+        font-size:28px;
+    }
+
+    .cta h2{
+        font-size:30px;
+    }
+
+    .hero-buttons .btn{
+        width:100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+<div class="nav-container">
+
+<div class="logo">
+<div class="logo-icon">🌉</div>
+<span>LifeBridge</span>
+</div>
+
+<nav>
+<ul class="nav-links" id="navLinks">
+
+<li>
+<a href="#home">
+Home / होम
+</a>
+</li>
+
+<li>
+<a href="#about">
+About / हमारे बारे में
+</a>
+</li>
+
+<li>
+<a href="#support">
+Support / सहायता
+</a>
+</li>
+
+<li>
+<a href="#mentors">
+Mentorship / मार्गदर्शन
+</a>
+</li>
+
+<li>
+<a href="#resources">
+Resources / संसाधन
+</a>
+</li>
+
+<li>
+<a href="#faq">
+FAQ / सवाल
+</a>
+</li>
+
+<li>
+<a href="#contact">
+Contact / संपर्क
+</a>
+</li>
+
+</ul>
+</nav>
+
+<div class="nav-buttons">
+
+<button
+class="icon-btn"
+onclick="toggleLanguage()"
+title="Language">
+🌐
+</button>
+
+<button
+class="icon-btn"
+onclick="toggleDark()"
+title="Dark Mode">
+🌙
+</button>
+
+<button
+class="icon-btn menu-btn"
+onclick="toggleMenu()">
+☰
+</button>
+
+</div>
+
+</div>
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+<div class="hero-container">
+
+<div>
+
+<span class="badge">
+🤝 Human Mentorship / मानवीय मार्गदर्शन
+</span>
+
+<h1>
+
+Build Your
+<span class="gradient-text">
+Better Future
+</span>
+
+<br>
+
+अपना बेहतर भविष्य बनाएं
+
+</h1>
+
+<p>
+A safe and supportive place for career,
+education, programming, personal growth
+and life guidance.
+</p>
+
+<p class="hindi-line">
+करियर, पढ़ाई, प्रोग्रामिंग और जीवन की समस्याओं
+के लिए एक supportive और भरोसेमंद जगह।
+</p>
+
+<div class="hero-buttons">
+
+<a href="#support"
+class="btn btn-primary">
+🚀 Find Support / सहायता पाएं
+</a>
+
+<a
+href="https://wa.me/916200998924?text=Hello%20LifeBridge%2C%20I%20need%20mentorship%20support."
+target="_blank"
+class="btn btn-green">
+💬 WhatsApp / व्हाट्सऐप
+</a>
+
+<a href="tel:6200998924"
+class="btn btn-secondary">
+📞 Call / कॉल
+</a>
+
+</div>
+
+</div>
+
+
+<div class="hero-card">
+
+<div class="hero-main-card">
+
+<h2>
+You Are Not Alone.
+</h2>
+
+<h3 style="margin-bottom:10px;">
+आप अकेले नहीं हैं।
+</h3>
+
+<p>
+Sometimes you don't need a perfect answer.
+You need someone who listens and helps you
+find the next step.
+</p>
+
+<p style="margin-top:8px;">
+कभी-कभी सही जवाब से पहले किसी ऐसे व्यक्ति की जरूरत
+होती है जो आपकी बात सुने और अगला कदम समझने में मदद करे।
+</p>
+
+
+<div class="floating-card">
+
+<strong>
+💼 Career / करियर
+</strong>
+
+Career planning, resume, interview and job guidance.
+
+<br>
+
+करियर प्लानिंग, रिज्यूमे, इंटरव्यू और जॉब गाइडेंस।
+
+</div>
+
+
+<div class="floating-card">
+
+<strong>
+🎓 Education / शिक्षा
+</strong>
+
+Study, projects, internships and skills.
+
+<br>
+
+पढ़ाई, प्रोजेक्ट, इंटर्नशिप और स्किल्स।
+
+</div>
+
+
+<div class="floating-card">
+
+<strong>
+❤️ Personal Support / व्यक्तिगत सहायता
+</strong>
+
+Talk about difficult situations with respect.
+
+<br>
+
+मुश्किल परिस्थितियों में सम्मान के साथ बात करें।
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- ================= STATS ================= -->
+
+<div class="stats">
+
+<div class="stat">
+<h3>24/7</h3>
+<p>
+Support Requests<br>
+सहायता अनुरोध
+</p>
+</div>
+
+<div class="stat">
+<h3>6+</h3>
+<p>
+Support Areas<br>
+सहायता क्षेत्र
+</p>
+</div>
+
+<div class="stat">
+<h3>100%</h3>
+<p>
+Human Focused<br>
+मानवीय सोच
+</p>
+</div>
+
+<div class="stat">
+<h3>1:1</h3>
+<p>
+Personal Guidance<br>
+व्यक्तिगत मार्गदर्शन
+</p>
+</div>
+
+</div>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="section" id="about">
+
+<div class="section-header">
+
+<span>ABOUT LIFEBRIDGE / लाइफब्रिज के बारे में</span>
+
+<h2>
+A Bridge Between Problems & Possibilities
+</h2>
+
+<div class="hindi-title">
+समस्याओं और संभावनाओं के बीच एक पुल
+</div>
+
+<p>
+LifeBridge is built around one simple idea:
+every person deserves to be heard.
+</p>
+
+<p>
+हर व्यक्ति की बात सुनी और समझी जाना जरूरी है।
+</p>
+
+</div>
+
+
+<div class="about">
+
+<div>
+
+<h2>
+Why LifeBridge? / LifeBridge क्यों?
+</h2>
+
+<p style="color:var(--muted);margin-top:15px;">
+Life can bring career confusion, study pressure,
+programming problems, loneliness and many other challenges.
+</p>
+
+<p style="color:var(--muted);margin-top:10px;">
+जीवन में करियर की उलझन, पढ़ाई का दबाव,
+प्रोग्रामिंग की समस्या और कई व्यक्तिगत परेशानियां आ सकती हैं।
+</p>
+
+
+<div class="check">
+<span>✓</span>
+<div>
+Listen without unnecessary judgment
+<br>
+बिना अनावश्यक आलोचना के सुनना
+</div>
+</div>
+
+<div class="check">
+<span>✓</span>
+<div>
+Find practical next steps
+<br>
+व्यावहारिक अगला कदम ढूंढना
+</div>
+</div>
+
+<div class="check">
+<span>✓</span>
+<div>
+Support students and professionals
+<br>
+Students और professionals को support करना
+</div>
+</div>
+
+<div class="check">
+<span>✓</span>
+<div>
+Encourage learning and growth
+<br>
+Learning और growth को बढ़ावा देना
+</div>
+</div>
+
+</div>
+
+
+<div class="about-box">
+
+<h3>
+🌱 Our Mission / हमारा उद्देश्य
+</h3>
+
+<p style="margin-top:12px;">
+To create a simple digital bridge where people
+can talk about challenges, learn useful skills
+and move toward their goals.
+</p>
+
+<p style="margin-top:8px;">
+एक ऐसी digital जगह बनाना जहाँ लोग अपनी समस्याओं
+पर बात कर सकें, skills सीख सकें और अपने goals की ओर बढ़ सकें।
+</p>
+
+<br>
+
+<h3>
+💙 Our Values / हमारी सोच
+</h3>
+
+<p style="margin-top:10px;">
+Respect • Empathy • Privacy • Learning • Growth
+</p>
+
+<p>
+सम्मान • सहानुभूति • गोपनीयता • सीखना • विकास
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SUPPORT ================= -->
+
+<section class="section" id="support">
+
+<div class="section-header">
+
+<span>
+SUPPORT CENTER / सहायता केंद्र
+</span>
+
+<h2>
+What Are You Going Through?
+</h2>
+
+<div class="hindi-title">
+आप किस समस्या से गुजर रहे हैं?
+</div>
+
+<p>
+Choose an area and explore available guidance.
+</p>
+
+<p>
+अपनी समस्या का क्षेत्र चुनें और guidance प्राप्त करें।
+</p>
+
+</div>
+
+
+<div class="search-area">
+
+<input
+type="text"
+id="supportSearch"
+placeholder="🔎 Search / खोजें... career, Java, study..."
+onkeyup="searchSupport()"
+>
+
+<button
+class="filter-btn active"
+onclick="filterSupport('all',this)">
+All / सभी
+</button>
+
+<button
+class="filter-btn"
+onclick="filterSupport('career',this)">
+Career / करियर
+</button>
+
+<button
+class="filter-btn"
+onclick="filterSupport('study',this)">
+Study / पढ़ाई
+</button>
+
+<button
+class="filter-btn"
+onclick="filterSupport('tech',this)">
+Tech / टेक
+</button>
+
+<button
+class="filter-btn"
+onclick="filterSupport('life',this)">
+Life / जीवन
+</button>
+
+</div>
+
+
+<div class="grid" id="supportGrid">
+
+
+<div class="card support-card" data-category="career">
+
+<div class="card-icon">💼</div>
+
+<h3>
+Career Guidance
+</h3>
+
+<p>
+करियर गाइडेंस
+</p>
+
+<p>
+Career confusion, resume, interview,
+job preparation and career planning.
+</p>
+
+<p>
+करियर confusion, resume, interview और job preparation।
+</p>
+
+<a class="card-link"
+onclick="openBooking('Career Guidance / करियर गाइडेंस')">
+Request Guidance →
+</a>
+
+</div>
+
+
+<div class="card support-card" data-category="study">
+
+<div class="card-icon">🎓</div>
+
+<h3>
+Student Mentorship
+</h3>
+
+<p>
+Student Mentorship / छात्र मार्गदर्शन
+</p>
+
+<p>
+Study planning, college projects,
+internships and career preparation.
+</p>
+
+<p>
+पढ़ाई, कॉलेज प्रोजेक्ट, इंटर्नशिप और career preparation।
+</p>
+
+<a class="card-link"
+onclick="openBooking('Student Mentorship / छात्र मार्गदर्शन')">
+Request Guidance →
+</a>
+
+</div>
+
+
+<div class="card support-card" data-category="tech">
+
+<div class="card-icon">💻</div>
+
+<h3>
+Programming Help
+</h3>
+
+<p>
+Programming Help / प्रोग्रामिंग सहायता
+</p>
+
+<p>
+Java, HTML, CSS, JavaScript, React,
+Node.js, GitHub and project guidance.
+</p>
+
+<p>
+Java, Web Development, GitHub और projects में मदद।
+</p>
+
+<a class="card-link"
+onclick="openBooking('Programming Help / प्रोग्रामिंग सहायता')">
+Get Help →
+</a>
+
+</div>
+
+
+<div class="card support-card" data-category="life">
+
+<div class="card-icon">❤️</div>
+
+<h3>
+Personal Support
+</h3>
+
+<p>
+Personal Support / व्यक्तिगत सहायता
+</p>
+
+<p>
+Difficult situations, confidence,
+life decisions and personal growth.
+</p>
+
+<p>
+मुश्किल परिस्थितियां, confidence और personal growth।
+</p>
+
+<a class="card-link"
+onclick="openBooking('Personal Support / व्यक्तिगत सहायता')">
+Talk About It →
+</a>
+
+</div>
+
+
+<div class="card support-card" data-category="life">
+
+<div class="card-icon">🧠</div>
+
+<h3>
+Emotional Support
+</h3>
+
+<p>
+Emotional Support / भावनात्मक सहायता
+</p>
+
+<p>
+A supportive place to express your feelings
+and talk through difficult moments.
+</p>
+
+<p>
+अपनी feelings को express करने और बात करने की जगह।
+</p>
+
+<a class="card-link"
+onclick="openBooking('Emotional Support / भावनात्मक सहायता')">
+Start Conversation →
+</a>
+
+</div>
+
+
+<div class="card support-card" data-category="career">
+
+<div class="card-icon">🚀</div>
+
+<h3>
+Personal Growth
+</h3>
+
+<p>
+Personal Growth / व्यक्तिगत विकास
+</p>
+
+<p>
+Communication, confidence, productivity,
+goals and professional development.
+</p>
+
+<p>
+Communication, confidence, productivity और goals।
+</p>
+
+<a class="card-link"
+onclick="openBooking('Personal Growth / व्यक्तिगत विकास')">
+Start Growing →
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FINDER ================= -->
+
+<section class="section">
+
+<div class="finder">
+
+<h2>
+🔎 Find Your Support
+</h2>
+
+<h3>
+अपनी सहायता का क्षेत्र चुनें
+</h3>
+
+<p>
+Choose what is closest to your current situation.
+</p>
+
+<p>
+अपनी वर्तमान स्थिति के अनुसार सबसे सही option चुनें।
+</p>
+
+
+<div class="finder-options">
+
+<button
+class="find-option"
+onclick="findSupport('career')">
+💼 Career problem
+<br>
+करियर की समस्या
+</button>
+
+<button
+class="find-option"
+onclick="findSupport('study')">
+🎓 Study problem
+<br>
+पढ़ाई की समस्या
+</button>
+
+<button
+class="find-option"
+onclick="findSupport('programming')">
+💻 Programming
+<br>
+प्रोग्रामिंग सहायता
+</button>
+
+<button
+class="find-option"
+onclick="findSupport('confidence')">
+🌱 Self Improvement
+<br>
+खुद को बेहतर बनाना
+</button>
+
+<button
+class="find-option"
+onclick="findSupport('emotional')">
+❤️ Need someone to talk
+<br>
+किसी से बात करनी है
+</button>
+
+<button
+class="find-option"
+onclick="findSupport('general')">
+🤝 Don't know where to start
+<br>
+कहां से शुरू करें पता नहीं
+</button>
+
+</div>
+
+
+<div class="find-result"
+id="findResult">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= HOW IT WORKS ================= -->
+
+<section class="section">
+
+<div class="section-header">
+
+<span>
+HOW IT WORKS / यह कैसे काम करता है
+</span>
+
+<h2>
+Simple. Human. Practical.
+</h2>
+
+<div class="hindi-title">
+सरल • मानवीय • व्यावहारिक
+</div>
+
+</div>
+
+
+<div class="process">
+
+<div class="step">
+
+<div class="step-number">1</div>
+
+<h3>
+Choose / चुनें
+</h3>
+
+<p style="color:var(--muted);">
+Select your support area.
+<br>
+अपनी समस्या का क्षेत्र चुनें।
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">2</div>
+
+<h3>
+Connect / जुड़ें
+</h3>
+
+<p style="color:var(--muted);">
+WhatsApp, call or email.
+<br>
+WhatsApp, call या email करें।
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">3</div>
+
+<h3>
+Talk / बात करें
+</h3>
+
+<p style="color:var(--muted);">
+Explain your situation.
+<br>
+अपनी समस्या बताएं।
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">4</div>
+
+<h3>
+Take Action / कदम उठाएं
+</h3>
+
+<p style="color:var(--muted);">
+Work on your next step.
+<br>
+अपने अगले कदम पर काम करें।
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= MENTORS ================= -->
+
+<section class="section" id="mentors">
+
+<div class="section-header">
+
+<span>
+MENTORSHIP / मार्गदर्शन
+</span>
+
+<h2>
+Find The Right Guidance
+</h2>
+
+<div class="hindi-title">
+सही मार्गदर्शन चुनें
+</div>
+
+<p>
+Example mentorship categories for the LifeBridge platform.
+</p>
+
+<p>
+ये LifeBridge के example mentorship categories हैं।
+</p>
+
+</div>
+
+
+<div class="grid">
+
+
+<div class="card mentor-card">
+
+<div class="avatar">
+💼
+</div>
+
+<h3>
+Career Mentor
+</h3>
+
+<span class="tag">
+Career / करियर
+</span>
+
+<p style="margin-top:12px;">
+Resume, interviews, career roadmap,
+jobs and professional skills.
+</p>
+
+<p>
+Resume, interview, job और career planning।
+</p>
+
+<button
+class="btn btn-primary"
+style="margin-top:15px;"
+onclick="openBooking('Career Mentor / करियर मेंटर')">
+Request Session
+</button>
+
+</div>
+
+
+<div class="card mentor-card">
+
+<div class="avatar">
+💻
+</div>
+
+<h3>
+Tech Mentor
+</h3>
+
+<span class="tag">
+Technology / टेक्नोलॉजी
+</span>
+
+<p style="margin-top:12px;">
+Java, web development, GitHub,
+projects and technical learning.
+</p>
+
+<p>
+Java, Web Development, GitHub और projects।
+</p>
+
+<button
+class="btn btn-primary"
+style="margin-top:15px;"
+onclick="openBooking('Tech Mentor / टेक मेंटर')">
+Request Session
+</button>
+
+</div>
+
+
+<div class="card mentor-card">
+
+<div class="avatar">
+🎓
+</div>
+
+<h3>
+Student Mentor
+</h3>
+
+<span class="tag">
+Education / शिक्षा
+</span>
+
+<p style="margin-top:12px;">
+College, projects, internships,
+study and career preparation.
+</p>
+
+<p>
+College, projects, internship और study guidance।
+</p>
+
+<button
+class="btn btn-primary"
+style="margin-top:15px;"
+onclick="openBooking('Student Mentor / छात्र मेंटर')">
+Request Session
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= RESOURCES ================= -->
+
+<section class="section" id="resources">
+
+<div class="section-header">
+
+<span>
+RESOURCES / संसाधन
+</span>
+
+<h2>
+LifeBridge Learning Library
+</h2>
+
+<div class="hindi-title">
+LifeBridge सीखने की लाइब्रेरी
+</div>
+
+<p>
+Useful ideas for career, technology, education and growth.
+</p>
+
+</div>
+
+
+<div class="grid">
+
+
+<div class="card">
+
+<div class="card-icon">💼</div>
+
+<h3>
+Tech Career Roadmap
+</h3>
+
+<p>
+टेक करियर रोडमैप
+</p>
+
+<p>
+Learn → Practice → Build Projects → GitHub → Resume → Apply.
+</p>
+
+<a class="card-link"
+onclick="showToast('Learn → Practice → Build → Apply 🚀')">
+Read Guide →
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">☕</div>
+
+<h3>
+Java Learning
+</h3>
+
+<p>
+Java सीखने का तरीका
+</p>
+
+<p>
+Start with basics, OOP, collections,
+exceptions, DSA and projects.
+</p>
+
+<a class="card-link"
+onclick="showToast('Java roadmap opened ☕')">
+Read Guide →
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">🌐</div>
+
+<h3>
+Web Development
+</h3>
+
+<p>
+Web Development सीखें
+</p>
+
+<p>
+HTML → CSS → JavaScript → React → Backend.
+</p>
+
+<a class="card-link"
+onclick="showToast('Web development roadmap opened 🌐')">
+Read Guide →
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">📄</div>
+
+<h3>
+Resume Building
+</h3>
+
+<p>
+Resume बनाना सीखें
+</p>
+
+<p>
+Show your skills, projects, GitHub,
+certificates and contact links.
+</p>
+
+<a class="card-link"
+onclick="showToast('Resume guide opened 📄')">
+Read Guide →
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">🎤</div>
+
+<h3>
+Interview Preparation
+</h3>
+
+<p>
+Interview की तैयारी
+</p>
+
+<p>
+Practice technical, HR, project
+and communication questions.
+</p>
+
+<a class="card-link"
+onclick="showToast('Interview guide opened 🎤')">
+Read Guide →
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">🌱</div>
+
+<h3>
+Personal Growth
+</h3>
+
+<p>
+व्यक्तिगत विकास
+</p>
+
+<p>
+Focus on small goals, habits,
+communication and consistency.
+</p>
+
+<a class="card-link"
+onclick="showToast('Personal growth guide opened 🌱')">
+Read Guide →
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= COMMUNITY ================= -->
+
+<section class="section">
+
+<div class="community">
+
+<div>
+
+<span style="color:var(--primary);font-weight:bold;">
+COMMUNITY / समुदाय
+</span>
+
+<h2 style="font-size:35px;margin:10px 0;">
+You Don't Have To Figure Everything Out Alone
+</h2>
+
+<h3 style="color:var(--primary);">
+आपको हर चीज अकेले समझने की जरूरत नहीं है।
+</h3>
+
+<p style="color:var(--muted);margin-top:12px;">
+A respectful community can make learning
+and personal growth easier.
+</p>
+
+<p style="color:var(--muted);">
+एक अच्छा और respectful community learning और growth
+को आसान बना सकता है।
+</p>
+
+</div>
+
+
+<div>
+
+<ul>
+
+<li>
+🤝 Respect everyone / सभी का सम्मान करें
+</li>
+
+<li>
+💬 Ask questions / सवाल पूछें
+</li>
+
+<li>
+📚 Share knowledge / ज्ञान साझा करें
+</li>
+
+<li>
+🌱 Encourage growth / विकास को बढ़ावा दें
+</li>
+
+<li>
+🔒 Respect privacy / privacy का सम्मान करें
+</li>
+
+</ul>
+
+<button
+class="btn btn-primary"
+onclick="showToast('Community feature is currently a frontend demo.')">
+Join Community / जुड़ें
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= STORIES ================= -->
+
+<section class="section">
+
+<div class="section-header">
+
+<span>
+JOURNEYS / यात्राएं
+</span>
+
+<h2>
+Every Journey Starts With One Step
+</h2>
+
+<div class="hindi-title">
+हर यात्रा एक छोटे कदम से शुरू होती है
+</div>
+
+<p>
+These are illustrative examples, not claims about real users.
+</p>
+
+</div>
+
+
+<div class="grid">
+
+
+<div class="card">
+
+<div class="card-icon">🎓</div>
+
+<h3>
+Student → Developer
+</h3>
+
+<p>
+Student ने programming basics से शुरुआत की,
+projects बनाए, GitHub profile बनाई और interview preparation शुरू की।
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">💼</div>
+
+<h3>
+Confused → Planned
+</h3>
+
+<p>
+Career confusion को छोटे goals में बदला:
+skills, projects, resume और interview preparation।
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">🌱</div>
+
+<h3>
+Stuck → One Step
+</h3>
+
+<p>
+सभी समस्याओं को एक साथ solve करने के बजाय
+एक छोटे और practical कदम से शुरुआत की।
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= MENTOR CTA ================= -->
+
+<section class="section">
+
+<div class="cta">
+
+<h2>
+Want To Become A Mentor?
+</h2>
+
+<h3>
+क्या आप Mentor बनना चाहते हैं?
+</h3>
+
+<p>
+If you have useful experience in technology,
+education, career development or another field,
+you can contact LifeBridge.
+</p>
+
+<p>
+अगर आपके पास technology, education, career या किसी
+अन्य क्षेत्र का अनुभव है तो LifeBridge से contact करें।
+</p>
+
+<button
+class="btn btn-secondary"
+onclick="openBooking('Become a Mentor / Mentor बनना')">
+🤝 Contact / संपर्क करें
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ================= SAFETY ================= -->
+
+<section class="section">
+
+<div class="safety">
+
+<h3>
+🆘 Important Safety Notice / जरूरी सुरक्षा सूचना
+</h3>
+
+<p style="margin-top:10px;">
+LifeBridge is for general mentorship, education,
+conversation and personal support.
+It is <strong>not a replacement for qualified medical
+or mental-health care.</strong>
+</p>
+
+<p style="margin-top:10px;">
+LifeBridge सामान्य mentorship, education और supportive
+conversation के लिए है। यह professional medical या
+mental-health treatment का replacement नहीं है।
+</p>
+
+<p style="margin-top:10px;">
+If you or someone else is in immediate danger or at risk
+of self-harm, contact your local emergency service or
+qualified professional immediately.
+</p>
+
+<p style="margin-top:10px;">
+अगर तुरंत खतरा हो या self-harm का risk हो तो local
+emergency service या qualified professional से तुरंत संपर्क करें।
+</p>
+
+</div>
+
+</section>
+
+
+<!-- ================= FAQ ================= -->
+
+<section class="section" id="faq">
+
+<div class="section-header">
+
+<span>
+FAQ / अक्सर पूछे जाने वाले सवाल
+</span>
+
+<h2>
+Frequently Asked Questions
+</h2>
+
+<div class="hindi-title">
+अक्सर पूछे जाने वाले प्रश्न
+</div>
+
+</div>
+
+
+<div class="faq">
+
+<div class="faq-question" onclick="toggleFaq(this)">
+What is LifeBridge? / LifeBridge क्या है?
+<span>+</span>
+</div>
+
+<div class="faq-answer">
+LifeBridge is a mentorship and support website concept
+for career, education, technology, personal growth and
+supportive conversations.
+
+<br><br>
+
+LifeBridge career, education, technology, personal growth
+और supportive conversation के लिए बनाया गया platform है।
+</div>
+
+</div>
+
+
+<div class="faq">
+
+<div class="faq-question" onclick="toggleFaq(this)">
+Can I contact through WhatsApp? / क्या WhatsApp से संपर्क कर सकते हैं?
+<span>+</span>
+</div>
+
+<div class="faq-answer">
+Yes. Click any WhatsApp button to start a conversation.
+
+<br><br>
+
+हाँ। किसी भी WhatsApp button पर click करके conversation शुरू कर सकते हैं।
+</div>
+
+</div>
+
+
+<div class="faq">
+
+<div class="faq-question" onclick="toggleFaq(this)">
+Can I get programming help? / क्या programming help मिल सकती है?
+<span>+</span>
+</div>
+
+<div class="faq-answer">
+Yes. Programming areas can include Java, HTML, CSS,
+JavaScript, React, Node.js, GitHub and projects.
+
+<br><br>
+
+Java, HTML, CSS, JavaScript, React, Node.js,
+GitHub और projects में guidance ली जा सकती है।
+</div>
+
+</div>
+
+
+<div class="faq">
+
+<div class="faq-question" onclick="toggleFaq(this)">
+Is LifeBridge a medical service? / क्या यह medical service है?
+<span>+</span>
+</div>
+
+<div class="faq-answer">
+No. LifeBridge is not a medical or mental-health treatment service.
+Professional help should be contacted when needed.
+
+<br><br>
+
+नहीं। LifeBridge medical या mental-health treatment service नहीं है।
+जरूरत होने पर professional help लेनी चाहिए।
+</div>
+
+</div>
+
+
+<div class="faq">
+
+<div class="faq-question" onclick="toggleFaq(this)">
+Is real online booking available?
+/ क्या real online booking है?
+<span>+</span>
+</div>
+
+<div class="faq-answer">
+This version provides a frontend booking interface.
+Real accounts, database and online scheduling require backend development.
+
+<br><br>
+
+इस version में frontend booking interface है।
+Real login, database और online scheduling के लिए backend चाहिए।
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="section" id="contact">
+
+<div class="section-header">
+
+<span>
+CONTACT / संपर्क
+</span>
+
+<h2>
+Let's Start A Conversation
+</h2>
+
+<div class="hindi-title">
+आइए बातचीत शुरू करते हैं
+</div>
+
+<p>
+Choose WhatsApp, call, email or send the form.
+</p>
+
+<p>
+WhatsApp, call, email या नीचे दिए form का उपयोग करें।
+</p>
+
+</div>
+
+
+<div class="contact">
+
+
+<div class="contact-box">
+
+<h2>
+Connect Directly / सीधे संपर्क करें
+</h2>
+
+
+<div class="contact-item">
+
+<div class="contact-icon">
+📱
+</div>
+
+<div>
+
+<strong>
+Phone / फोन
+</strong>
+
+<a href="tel:6200998924">
+6200998924
+</a>
+
+</div>
+
+</div>
+
+
+<div class="contact-item">
+
+<div class="contact-icon">
+💬
+</div>
+
+<div>
+
+<strong>
+WhatsApp / व्हाट्सऐप
+</strong>
+
+<a
+href="https://wa.me/916200998924"
+target="_blank">
+Message on WhatsApp
+</a>
+
+</div>
+
+</div>
+
+
+<div class="contact-item">
+
+<div class="contact-icon">
+📧
+</div>
+
+<div>
+
+<strong>
+Email / ईमेल
+</strong>
+
+<a href="mailto:syedibrahim8445@gmail.com
+">
+syedibrahim8445@gmail.com
+</a>
+
+</div>
+
+</div>
+
+
+<div class="contact-item">
+
+<div class="contact-icon">
+🤝
+</div>
+
+<div>
+
+<strong>
+Available For / सहायता
+</strong>
+
+<span style="display:block;color:var(--muted);">
+Career • Study • Tech • Personal Support
+</span>
+
+<span style="display:block;color:var(--muted);">
+करियर • पढ़ाई • टेक • व्यक्तिगत सहायता
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="contact-box">
+
+<h2>
+Send Message / संदेश भेजें
+</h2>
+
+<form onsubmit="sendContact(event)">
+
+
+<div class="form-group">
+
+<label>
+Your Name / आपका नाम
+</label>
+
+<input
+type="text"
+id="contactName"
+placeholder="Enter your name / नाम लिखें"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Your Email / आपका ईमेल
+</label>
+
+<input
+type="email"
+id="contactEmail"
+placeholder="Enter email / ईमेल लिखें"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Topic / विषय
+</label>
+
+<select id="contactTopic">
+
+<option>Career Guidance / करियर</option>
+<option>Student Support / पढ़ाई</option>
+<option>Programming Help / प्रोग्रामिंग</option>
+<option>Personal Support / व्यक्तिगत सहायता</option>
+<option>Emotional Support / भावनात्मक सहायता</option>
+<option>Become a Mentor / Mentor बनना</option>
+<option>Other / अन्य</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Message / संदेश
+</label>
+
+<textarea
+id="contactMessage"
+placeholder="Tell me your problem / अपनी समस्या बताएं"
+required></textarea>
+
+</div>
+
+
+<button
+class="btn btn-primary"
+type="submit">
+
+📲 Send WhatsApp / WhatsApp भेजें
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FINAL CTA ================= -->
+
+<section class="section">
+
+<div class="cta">
+
+<h2>
+One Conversation Can Be A Starting Point.
+</h2>
+
+<h3>
+एक बातचीत एक नई शुरुआत हो सकती है।
+</h3>
+
+<p>
+Talk about your problem. Understand your options.
+Take one practical next step.
+</p>
+
+<p>
+अपनी समस्या के बारे में बात करें, options समझें और
+एक practical अगला कदम उठाएं।
+</p>
+
+<div
+class="hero-buttons"
+style="justify-content:center;">
+
+<a
+href="https://wa.me/916200998924?text=Hello%20LifeBridge%2C%20I%20would%20like%20to%20talk."
+target="_blank"
+class="btn btn-secondary">
+
+💬 WhatsApp Me / बात करें
+
+</a>
+
+<a
+href="tel:6200998924"
+class="btn btn-secondary">
+
+📞 Call Me / कॉल करें
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="footer-container">
+
+
+<div>
+
+<div class="logo" style="color:white;">
+
+<div class="logo-icon">
+🌉
+</div>
+
+LifeBridge
+
+</div>
+
+<p style="margin-top:15px;">
+Human mentorship, learning and supportive conversations.
+</p>
+
+<p>
+मानवीय मार्गदर्शन, learning और supportive conversations।
+</p>
+
+</div>
+
+
+<div>
+
+<h3>
+Explore / एक्सप्लोर
+</h3>
+
+<a href="#home">
+Home / होम
+</a>
+
+<a href="#about">
+About / हमारे बारे में
+</a>
+
+<a href="#support">
+Support / सहायता
+</a>
+
+<a href="#mentors">
+Mentorship / मार्गदर्शन
+</a>
+
+</div>
+
+
+<div>
+
+<h3>
+Resources / संसाधन
+</h3>
+
+<a href="#resources">
+Learning Library / Learning
+</a>
+
+<a href="#faq">
+FAQ / सवाल
+</a>
+
+<a href="#contact">
+Contact / संपर्क
+</a>
+
+</div>
+
+
+<div>
+
+<h3>
+Connect / जुड़ें
+</h3>
+
+<a href="tel:6200998924">
+📞 6200998924
+</a>
+
+<a href="mailto:syedibrahim8445@gmail.com
+">
+📧 Email / ईमेल
+</a>
+
+<a
+href="https://wa.me/916200998924"
+target="_blank">
+💬 WhatsApp
+</a>
+
+</div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+© 2026 LifeBridge — Human Mentorship & Support
+
+<br>
+
+आप अकेले नहीं हैं • You are not alone.
+
+<br><br>
+
+Frontend demo • Real login, database and booking require backend integration.
+
+</div>
+
+</footer>
+
+
+<!-- ================= WHATSAPP ================= -->
+
+<a
+href="https://wa.me/916200998924?text=Hello%20LifeBridge%2C%20I%20need%20support."
+target="_blank"
+class="whatsapp-float"
+title="WhatsApp / व्हाट्सऐप">
+
+💬
+
+</a>
+
+
+<!-- ================= TOP BUTTON ================= -->
+
+<button
+class="top-btn"
+id="topBtn"
+onclick="window.scrollTo({top:0})">
+
+↑
+
+</button>
+
+
+<!-- ================= BOOKING MODAL ================= -->
+
+<div class="modal" id="bookingModal">
+
+<div class="modal-content">
+
+<button
+class="close"
+onclick="closeBooking()">
+×
+</button>
+
+<h2>
+Request Session / Session Request
+</h2>
+
+<p style="color:var(--muted);margin:8px 0 20px;">
+Tell us what you need.
+<br>
+आपको किस तरह की सहायता चाहिए बताएं।
+</p>
+
+
+<form onsubmit="sendBooking(event)">
+
+
+<div class="form-group">
+
+<label>
+Selected Area / चुना हुआ क्षेत्र
+</label>
+
+<input
+id="bookingTopic"
+readonly>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Your Name / आपका नाम
+</label>
+
+<input
+id="bookingName"
+required
+placeholder="Your name / नाम">
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Preferred Contact / संपर्क का तरीका
+</label>
+
+<select id="bookingContact">
+
+<option>
+WhatsApp / व्हाट्सऐप
+</option>
+
+<option>
+Phone Call / फोन कॉल
+</option>
+
+<option>
+Email / ईमेल
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Message / संदेश
+</label>
+
+<textarea
+id="bookingMessage"
+required
+placeholder="Explain your requirement / अपनी जरूरत बताएं">
+</textarea>
+
+</div>
+
+
+<button
+class="btn btn-green"
+type="submit">
+
+💬 Continue WhatsApp / WhatsApp पर जाएं
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+
+<!-- ================= TOAST ================= -->
+
+<div
+class="toast"
+id="toast">
+</div>
+
+
+<script>
+
+/* ================= MOBILE MENU ================= */
+
+function toggleMenu(){
+
+    document
+    .getElementById("navLinks")
+    .classList.toggle("show");
+
+}
+
+
+/* ================= DARK MODE ================= */
+
+function toggleDark(){
+
+    document.body.classList.toggle("dark");
+
+    localStorage.setItem(
+        "lifebridgeDark",
+        document.body.classList.contains("dark")
+    );
+
+}
+
+if(
+    localStorage.getItem("lifebridgeDark")==="true"
+){
+
+    document.body.classList.add("dark");
+
+}
+
+
+/* ================= LANGUAGE ================= */
+
+let hindiMode=false;
+
+function toggleLanguage(){
+
+    hindiMode=!hindiMode;
+
+    if(hindiMode){
+
+        showToast(
+            "Hindi mode / हिंदी मोड 🇮🇳"
+        );
+
+    }else{
+
+        showToast(
+            "English mode / अंग्रेजी मोड 🇬🇧"
+        );
+
+    }
+
+}
+
+
+/* ================= SUPPORT FILTER ================= */
+
+function filterSupport(category,button){
+
+    const cards=
+    document.querySelectorAll(".support-card");
+
+    const buttons=
+    document.querySelectorAll(".filter-btn");
+
+    buttons.forEach(btn=>{
+        btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    cards.forEach(card=>{
+
+        if(
+            category==="all" ||
+            card.dataset.category===category
+        ){
+
+            card.style.display="block";
+
+        }else{
+
+            card.style.display="none";
+
+        }
+
+    });
+
+}
+
+
+/* ================= SEARCH ================= */
+
+function searchSupport(){
+
+    const query=
+    document
+    .getElementById("supportSearch")
+    .value
+    .toLowerCase();
+
+    document
+    .querySelectorAll(".support-card")
+    .forEach(card=>{
+
+        const text=
+        card.innerText.toLowerCase();
+
+        card.style.display=
+        text.includes(query)
+        ? "block"
+        : "none";
+
+    });
+
+}
+
+
+/* ================= SUPPORT FINDER ================= */
+
+function findSupport(type){
+
+    const result=
+    document.getElementById("findResult");
+
+    let message="";
+
+    if(type==="career"){
+
+        message=
+        "💼 Career / करियर: Skills, resume, projects, interviews और career roadmap से शुरुआत करें.";
+
+    }
+
+    if(type==="study"){
+
+        message=
+        "🎓 Study / पढ़ाई: Subjects, projects, internships और career goals को छोटे steps में divide करें.";
+
+    }
+
+    if(type==="programming"){
+
+        message=
+        "💻 Programming / प्रोग्रामिंग: Java, Web Development, GitHub और projects पर step-by-step काम करें.";
+
+    }
+
+    if(type==="confidence"){
+
+        message=
+        "🌱 Self Improvement / खुद को बेहतर बनाना: एक छोटा goal चुनें और daily consistency पर focus करें.";
+
+    }
+
+    if(type==="emotional"){
+
+        message=
+        "❤️ Emotional Support / भावनात्मक सहायता: अपनी feelings के बारे में बात कर सकते हैं. Serious concerns में qualified professional की मदद लें.";
+
+    }
+
+    if(type==="general"){
+
+        message=
+        "🤝 General Support / सामान्य सहायता: अपनी problem अपने शब्दों में बताएं और एक practical next step से शुरुआत करें.";
+
+    }
+
+    result.innerHTML=
+    "<strong>"+message+"</strong><br><br>"+
+    "<button class='btn btn-primary' onclick=\"openBooking('Support Finder / सहायता खोज')\">Request Support / सहायता लें</button>";
+
+    result.style.display="block";
+
+}
+
+
+/* ================= BOOKING ================= */
+
+function openBooking(topic){
+
+    document.getElementById("bookingTopic").value=topic;
+
+    document
+    .getElementById("bookingModal")
+    .classList.add("show");
+
+}
+
+
+function closeBooking(){
+
+    document
+    .getElementById("bookingModal")
+    .classList.remove("show");
+
+}
+
+
+/* ================= BOOKING WHATSAPP ================= */
+
+function sendBooking(event){
+
+    event.preventDefault();
+
+    const topic=
+    document.getElementById("bookingTopic").value;
+
+    const name=
+    document.getElementById("bookingName").value;
+
+    const contact=
+    document.getElementById("bookingContact").value;
+
+    const message=
+    document.getElementById("bookingMessage").value;
+
+    const text=
+`Hello LifeBridge,
+
+I would like to request mentorship/support.
+
+Name: ${name}
+Area: ${topic}
+Preferred Contact: ${contact}
+
+My Message:
+${message}`;
+
+    const url=
+    "https://wa.me/916200998924?text="+
+    encodeURIComponent(text);
+
+    window.open(url,"_blank");
+
+    closeBooking();
+
+}
+
+
+/* ================= CONTACT ================= */
+
+function sendContact(event){
+
+    event.preventDefault();
+
+    const name=
+    document.getElementById("contactName").value;
+
+    const email=
+    document.getElementById("contactEmail").value;
+
+    const topic=
+    document.getElementById("contactTopic").value;
+
+    const message=
+    document.getElementById("contactMessage").value;
+
+    const text=
+`Hello LifeBridge,
+
+Name: ${name}
+Email: ${email}
+Topic: ${topic}
+
+Message:
+${message}`;
+
+    const url=
+    "https://wa.me/916200998924?text="+
+    encodeURIComponent(text);
+
+    window.open(url,"_blank");
+
+}
+
+
+/* ================= FAQ ================= */
+
+function toggleFaq(element){
+
+    const faq=
+    element.parentElement;
+
+    faq.classList.toggle("open");
+
+}
+
+
+/* ================= TOAST ================= */
+
+function showToast(message){
+
+    const toast=
+    document.getElementById("toast");
+
+    toast.innerText=message;
+
+    toast.classList.add("show");
+
+    setTimeout(()=>{
+
+        toast.classList.remove("show");
+
+    },3000);
+
+}
+
+
+/* ================= TOP BUTTON ================= */
+
+window.addEventListener("scroll",()=>{
+
+    const topBtn=
+    document.getElementById("topBtn");
+
+    if(window.scrollY>500){
+
+        topBtn.style.display="block";
+
+    }else{
+
+        topBtn.style.display="none";
+
+    }
+
+});
+
+
+/* ================= CLOSE MODAL ================= */
+
+window.addEventListener("click",(event)=>{
+
+    const modal=
+    document.getElementById("bookingModal");
+
+    if(event.target===modal){
+
+        closeBooking();
+
+    }
+
+});
+
+
+/* ================= MOBILE LINK CLOSE ================= */
+
+document
+.querySelectorAll(".nav-links a")
+.forEach(link=>{
+
+    link.addEventListener("click",()=>{
+
+        document
+        .getElementById("navLinks")
+        .classList.remove("show");
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
